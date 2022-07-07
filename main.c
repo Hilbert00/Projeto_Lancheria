@@ -17,7 +17,7 @@ int main()
     setlocale(LC_ALL, "Portuguese");
 
     int flagOpcao=1, flagPedindo=1;
-<<<<<<< HEAD
+
     float total=0.0, functionPedido();
     char codOpcao='\0';
 
@@ -27,14 +27,14 @@ int main()
             system("cls");
 
             if(total>0.0)
-=======
+
     float total=0.0;
     char codOpcao='\0';
 
     while(flagPedindo){
         do {
             if (total>0.0)
->>>>>>> 21ed4e89b2d2e4349403185752eabbae8cc25c1c
+
                 printf("Total do pedido atual: R$%.2f\n\n", total);
 
             printf("=== MENU IGREBOYS ===\n");
