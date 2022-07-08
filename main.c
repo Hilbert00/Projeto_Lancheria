@@ -3,7 +3,7 @@
 /*==                  Programação 1                   ==*/
 /*======================================================*/
 /*== Autores: Nicolas A. Hilbert & Bruno Leal Maciel  ==*/
-/*== Data:                                            ==*/
+/*== Data: 08/07/22                                   ==*/
 /*== Turma: INFO 62B                                  ==*/
 /*======================================================*/
 
@@ -16,13 +16,12 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
-    int flagOpcao=1;
     int flagPedindo=1;
     int encerrarPrograma(float);
     int encerrarPedido(float);
     float total=0.0;
     float fazerPedido();
-    char codOpcao='\0';
+    char codOpcao;
 
     while(flagPedindo){
         system("cls");
@@ -62,11 +61,11 @@ float fazerPedido() {
         printf("*==                     CARDÁPIO                     ==*\n");
         printf("*======================================================*\n");
         printf("*== Cód.                Produto               Preço  ==*\n");
-        printf("*== 100                 Torrada               R$4,00 ==*\n");
-        printf("*== 101                 Pastel                R$3,50 ==*\n");
+        printf("*== 100                  Pastel               R$3,50 ==*\n");
+        printf("*== 101                 Torrada               R$4,00 ==*\n");
         printf("*== 102               Enroladinho             R$1,50 ==*\n");
-        printf("*== 103            Refrigerante Lata          R$3,00 ==*\n");
-        printf("*== 104               Suco 500ml              R$3,50 ==*\n");
+        printf("*== 103                Suco 500ml             R$3,50 ==*\n");
+        printf("*== 104             Refrigerante Lata         R$3,00 ==*\n");
         printf("*======================================================*\n");
         printf("\n-> Informe o código de seu produto (0 para cancelar): ");
 
@@ -76,11 +75,11 @@ float fazerPedido() {
 
     switch(codProduto){
         case 0: printf("\n\nPedido cancelado."); Sleep(1500); return 0;
-        case 100: return 4.0;
-        case 101: return 3.5;
+        case 100: return 3.5;
+        case 101: return 4.5;
         case 102: return 1.5;
-        case 103: return 3.0;
-        case 104: return 3.5;
+        case 103: return 3.5;
+        case 104: return 3.0;
         default: system("cls"); printf("UM ERRO OCORREU!"); Sleep(1500); return 0;
     }
 }
