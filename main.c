@@ -17,14 +17,24 @@ int main()
     setlocale(LC_ALL, "Portuguese");
 
     int flagOpcao=1, flagPedindo=1;
-    int encerrarPrograma(float), encerrarPedido(float);
-    float total=1.0;
+    float total=0.0, fazerPedido();
     char codOpcao='\0';
 
 
     while(flagPedindo){
         do {
             system("cls");
+
+            if(total>0.0)
+
+    float total=0.0;
+    char codOpcao='\0';
+
+    while(flagPedindo){
+        do {
+            if (total>0.0)
+
+                printf("Total do pedido atual: R$%.2f\n\n", total);
 
             printf("=== MENU IGREBOYS ===\n");
             printf("\t[N] Novo Pedido\n");
@@ -33,6 +43,7 @@ int main()
             printf("\t-> Informe sua opção: ");
             fflush(stdin);
             scanf("%c", &codOpcao);
+
             if(codOpcao!='n'&&codOpcao!='N'&&codOpcao!='e'&&codOpcao!='E'&&codOpcao!='s'&&codOpcao!='S'){
                 printf("\nDigite uma opção válida!!!\n");
                 Sleep(2000);
@@ -44,63 +55,47 @@ int main()
 
         switch(codOpcao){
             case 'N':
-            case 'n': break;
+            case 'n': total += fazerPedido(); break;
             case 'e':
-            case 'E': total = encerrarPedido(total); break;
+            case 'E': break;
             case 's':
             case 'S':
-            default : flagPedindo = encerrarPrograma(total); break;
+            default: system("cls"); printf("Volte Sempre!!!\n\n"); flagPedindo=0; break;
         }
     }
 
     return 0;
 }
 
-int encerrarPrograma(float total){
-    int flagContinuar=1;
+float fazerPedido() {
+    int codProduto;
 
-    if(total > 0.0){
-        char confirmarSaida;
-
+    do{
         system("cls");
 
-        printf("===Você não finalizou o pedido===\n\n");
-        printf("Você quer continuar a pedir? \n");
-        printf("\t[S] Sim\n");
-        printf("\t[N] Não\n");
-        printf("\t-> Informe sua opção: ");
-
+        printf("*======================================================*\n");
+        printf("*==                   MENU IGREBOYS                  ==*\n");
+        printf("*==                     CARDÁPIO                     ==*\n");
+        printf("*======================================================*\n");
+        printf("*== Cód.                Produto               Preço  ==*\n");
+        printf("*== 100                 Torrada               R$4,00 ==*\n");
+        printf("*== 101                 Pastel                R$3,50 ==*\n");
+        printf("*== 102               Enroladinho             R$1,50 ==*\n");
+        printf("*== 103            Refrigerante Lata          R$3,00 ==*\n");
+        printf("*== 104               Suco 500ml              R$3,50 ==*\n");
+        printf("*======================================================*\n");
+        printf("\n-> Informe o código de seu produto (0 para cancelar): ");
         fflush(stdin);
-        scanf("%c",&confirmarSaida);
+        scanf("%d", &codProduto);
+    } while(codProduto!=0&&(codProduto<100||codProduto>104));
 
-        switch(confirmarSaida){
-        case 'S':
-        case 's': Sleep(1000); system("cls"); break;
-        case 'n':
-        case 'N': flagContinuar=0; system("cls");
-                  printf("Volte sempre!\n"); break;
-        }
+    switch(codProduto){
+        case 0: printf("\n\nPedido cancelado."); Sleep(2000); return 0;
+        case 100: return 4.0;
+        case 101: return 3.5;
+        case 102: return 1.5;
+        case 103: return 3.0;
+        case 104: return 3.5;
+        default: system("cls"); printf("UM ERRO OCORREU!"); Sleep(2000); return 0;
     }
-    else{
-        flagContinuar=0;
-        system("cls");
-        printf("Volte sempre!\n");
-    }
-
-    return flagContinuar;
-}
-
-int encerrarPedido(float total){
-    system("cls");
-    if (total>0.0){
-        total=0.0;
-        printf("Você pagou com sucesso!");
-        Sleep(2000);
-        }
-    else{
-        printf("Não há um pedido em andamento!");
-        Sleep(2000);
-    }
-
-    return total;
 }
