@@ -76,7 +76,7 @@ float fazerPedido() {
     switch(codProduto){
         case 0: printf("\n\nPedido cancelado."); Sleep(1500); return 0;
         case 100: return 3.5;
-        case 101: return 4.5;
+        case 101: return 4.0;
         case 102: return 1.5;
         case 103: return 3.5;
         case 104: return 3.0;
